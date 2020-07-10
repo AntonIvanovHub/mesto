@@ -1,0 +1,12 @@
+@import url(__image/element__image.css);
+@import url(__info/element__info.css);
+@import url(__title/element__title.css);
+@import url(__btn-like/element__btn-like.css);
+@import url(__image-like/element__image-like.css);
+
+
+.element {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
