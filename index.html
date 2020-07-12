@@ -6,14 +6,13 @@
   <meta name="description" content="Проект 4: Mesto">
   <meta name="keywords" content="html, css, js">
   <meta name="author" content="Антон Иванов">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="page/index.css">
   <title>Mesto</title>
 </head>
 <body class="page">
   <div class="page__content">
     <header class="header">
       <img class="header__logo" src="images/mesto-header.svg" alt="Логотип Место">
-      <div class="header__line"></div>
     </header>
     <main class="content">
       <section class="profile">
@@ -21,16 +20,16 @@
         <div class="profile__info">
           <div class="profile__title">
             <h1 class="profile__name">Антон Иванов</h1>
-            <button type="button" class="profile__btn-edit"><img class="profile__image-edit" src="images/edit-button.svg" alt="Редактировать"></button>
+            <button type="button" class="profile__btn-edit" aria-label="Редактировать"></button>
           </div>          
           <p class="profile__occupation">Веб разработчик</p>
         </div>        
-        <button  type="button" class="profile__btn-add"><img class="profile__image-add" src="images/add-button.svg" alt="Добавить"></button>
+        <button  type="button" class="profile__btn-add" aria-label="Добавить"></button>
       </section>
 
       <section class="elements">
         <article class="element">
-          <img class="element__image" src="images/Spb.jpg" alt="Санкт-Петербург">     
+          <img class="element__image" src="images/spb.jpg" alt="Санкт-Петербург">     
           <div class="element__info">
             <h2 class="element__title">Санкт-Петербург</h2>
             <button type="button" class="element__btn-like"><img class="element__image-like" src="images/like.svg" alt="Лайк"></button>
@@ -38,7 +37,7 @@
         </article>          
 
         <article class="element">
-          <img class="element__image" src="images/Milan.jpg" alt="Милан">     
+          <img class="element__image" src="images/milan.jpg" alt="Милан">     
           <div class="element__info">
             <h2 class="element__title">Милан</h2>
             <button type="button" class="element__btn-like"><img class="element__image-like" src="images/like.svg" alt="Лайк"></button>
@@ -46,7 +45,7 @@
         </article>    
 
         <article class="element">
-          <img class="element__image" src="images/Bangkok.jpg" alt="Бангкок">     
+          <img class="element__image" src="images/bangkok.jpg" alt="Бангкок">     
           <div class="element__info">
             <h2 class="element__title">Бангкок</h2>
             <button type="button" class="element__btn-like"><img class="element__image-like" src="images/like.svg" alt="Лайк"></button>
@@ -54,7 +53,7 @@
         </article>    
 
         <article class="element">
-          <img class="element__image" src="images/Oskemen.jpg" alt="Усть-Каменогорс">     
+          <img class="element__image" src="images/oskemen.jpg" alt="Усть-Каменогорс">     
           <div class="element__info">
             <h2 class="element__title">Усть-Каменогорск</h2>
             <button type="button" class="element__btn-like"><img class="element__image-like" src="images/like.svg" alt="Лайк"></button>
@@ -62,7 +61,7 @@
         </article>    
 
         <article class="element">
-          <img class="element__image" src="images/NigniyNovgorod.jpg" alt="Нижний Новгород">     
+          <img class="element__image" src="images/novgorod.jpg" alt="Нижний Новгород">     
           <div class="element__info">
             <h2 class="element__title">Нижний Новгород</h2>
             <button type="button" class="element__btn-like"><img class="element__image-like" src="images/like.svg" alt="Лайк"></button>
@@ -70,7 +69,7 @@
         </article>    
 
         <article class="element">
-          <img class="element__image" src="images/Samui.jpg" alt="Самуи">     
+          <img class="element__image" src="images/samui.jpg" alt="Самуи">     
           <div class="element__info">
             <h2 class="element__title">Самуи</h2>
             <button type="button" class="element__btn-like"><img class="element__image-like" src="images/like.svg" alt="Лайк"></button>
@@ -85,11 +84,11 @@
   <div class="popup">
     <section class="popup__container">
       <button type="button" class="popup__btn-close"><img class="popup__image-close" src="images/Close-button.svg" alt="Закрыть"></button>
-      <form action="#" class="popup__form">
+      <form  name="edit-profile" action="#" class="popup__form">
         <h3 class="popup__heading">Редактировать профиль</h3>
         <fieldset class="popup__form-container">
-          <input name="name" type="text" class="popup__input popup__input_type_name" value="Антон Иванов" placeholder="Имя">          
-          <input name="occupation" type="text" class="popup__input popup__input_type_occupation" value="Веб разработчик" placeholder="О себе">          
+          <input name="name" type="text" class="popup__input popup__input_type_name" placeholder="Имя">          
+          <input name="occupation" type="text" class="popup__input popup__input_type_occupation" placeholder="О себе">          
         </fieldset>
         <button type="submit" class="popup__btn-submit">Сохранить</button>
       </form>      

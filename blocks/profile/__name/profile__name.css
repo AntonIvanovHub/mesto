@@ -4,6 +4,9 @@
     line-height: 56px;
     color: #FFFFFF;    
     margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
    
 
 }
@@ -11,6 +14,5 @@
 @media screen and (max-width: 640px){
     .profile__name {
         font-size: 27px;
-        line-height: 56px;
     }
 }
