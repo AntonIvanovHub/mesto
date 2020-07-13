@@ -7,7 +7,7 @@ const nameInput = formElement.querySelector('.popup__input_type_name');
 const occupationInput = formElement.querySelector('.popup__input_type_occupation');
 const nameProfile = document.querySelector('.profile__name');
 const occupationProfile = document.querySelector('.profile__occupation');
-
+// Вроде разобрался, спасибо за обширный ответ...//
 function togglePopup() {    
      popup.classList.toggle('popup_opened');  
      if (popup.classList.contains('popup_opened')){
