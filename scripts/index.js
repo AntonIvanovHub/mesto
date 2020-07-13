@@ -9,7 +9,11 @@ const nameProfile = document.querySelector('.profile__name');
 const occupationProfile = document.querySelector('.profile__occupation');
 
 function togglePopup() {    
-     popup.classList.toggle('popup_opened');     
+     popup.classList.toggle('popup_opened');  
+     if (popup.classList.contains('popup_opened')){
+        nameInput.value = nameProfile.textContent;
+        occupationInput.value = occupationProfile.textContent;
+     }   
 }
 
 function formSubmitHandler (evt) {
@@ -18,13 +22,8 @@ function formSubmitHandler (evt) {
     occupationProfile.textContent = occupationInput.value;
     togglePopup();
 }
-
-//я так понял, что toogle сам проверят есть ли класс или нет, а ошибка заключалась в том, что не заносились данные в форму при открытии попапа, но так как значения value у меня были прописаны в html этого момента я не заметил.// 
-openPopupButton.addEventListener('click', () => {
-    nameInput.value = nameProfile.textContent;
-    occupationInput.value = occupationProfile.textContent;
-    togglePopup();}
-);
+ 
+openPopupButton.addEventListener('click',togglePopup);
 closePopupButton.addEventListener('click', togglePopup);
 formElement.addEventListener('submit', formSubmitHandler);
 
