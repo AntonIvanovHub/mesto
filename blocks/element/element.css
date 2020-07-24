@@ -2,11 +2,13 @@
 @import url(__info/element__info.css);
 @import url(__title/element__title.css);
 @import url(__btn-like/element__btn-like.css);
-@import url(__image-like/element__image-like.css);
+@import url(__btn-like/_active/element__btn-like_active.css);
+@import url(__btn-remove/element__btn-remove.css);
 
 
 .element {
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
 }
