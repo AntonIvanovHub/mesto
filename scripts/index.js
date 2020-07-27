@@ -58,18 +58,14 @@ const captionPopup = imagePopup.querySelector('.popup__caption');
 
 // Темплейты
 const cardTemlate = document.querySelector('.template-element').content.querySelector('.element');
-const elements = document.querySelector('.elements');
+const elements = document.querySelector('.elements__list');
 
-// Открывем закрываем модалки, проверяем есть ли класс заносим данные
-function togglePopup(popup) {    
-    if (!popup.classList.contains('popup_opened')){
-        nameInput.value = nameProfile.textContent;
-        occupationInput.value = occupationProfile.textContent;
-    }
+// Функции
+
+function togglePopup(popup) {        
     popup.classList.toggle('popup_opened');     
 }
 
-// Функции
 // Заполняем формы
 function formSubmitHandler (evt) {
     evt.preventDefault(); 
@@ -95,16 +91,18 @@ function createCard(data) {
         
     cardLikeButton.addEventListener('click', handleLikeClick);
     cardRemoveButton.addEventListener('click',handleRemoveClick);    
-    cardImage.addEventListener('click', () => {    
-        figurePopup.src = data.link;
-        captionPopup.textContent = data.name;        
-        togglePopup(imagePopup);
-    });
+    cardImage.addEventListener('click', openCardImage);
 
     cardTitle.textContent = data.name;
     cardImage.src = data.link;
 
     return cardElement;    
+}
+
+function openCardImage(evt) {
+    figurePopup.src = evt.target.src;
+    captionPopup.textContent = evt.target.closest('.element').querySelector('.element__title').textContent;        
+    togglePopup(imagePopup);
 }
 
 function renderCard(data) {
@@ -121,10 +119,11 @@ function handleRemoveClick(evt) {
 
 // Слушатели и вызовы
 
-initialCards.forEach((data) =>{
-    renderCard(data);    
-}); 
 profileEditButton.addEventListener('click', () => {
+    if (!popup.classList.contains('popup_opened')){
+        nameInput.value = nameProfile.textContent;
+        occupationInput.value = occupationProfile.textContent;
+    }//Проверку добавил в обработчик клика редактирования профиля
     togglePopup(editProfilePopup)
 });
 closeProfileEditButton.addEventListener('click',  () => {
@@ -141,3 +140,7 @@ closeImagePopupButton.addEventListener('click',  () => {
 });
 editForm.addEventListener('submit', formSubmitHandler);
 addCardForm.addEventListener('submit', addCardSubmitHandler);
+
+initialCards.forEach((data) =>{
+    renderCard(data);    
+}); 

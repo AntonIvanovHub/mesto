@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!--единственная ошибка(404) в консоле которую я вижу, появляется при первой загрузке с GitHubPages, но после обновления страницы исчезает и больше не появляется. Почему это происходит я не могу понять. Больше ошибок нет. Или я не внимательно смотрю?-->
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -27,8 +27,8 @@
         <button  type="button" class="profile__btn-add" aria-label="Добавить"></button>
       </section>
 
-      <section class="elements">      
-        
+      <section class="elements">
+        <ul class="elements__list"></ul>         
       </section>
     </main>  
     <footer class="footer">
@@ -41,7 +41,7 @@
       <form  name="edit-profile" action="#" class="popup__form">
         <h3 class="popup__heading">Редактировать профиль</h3>
         <fieldset class="popup__form-container">
-          <input name="name" type="text" class="popup__input popup__input_type_name" placeholder="Имя">          
+          <input name="name" type="text" required class="popup__input popup__input_type_name" placeholder="Имя">          
           <input name="occupation" type="text" class="popup__input popup__input_type_occupation" placeholder="О себе">          
         </fieldset>
         <button type="submit" class="popup__btn-submit">Сохранить</button>
@@ -55,8 +55,8 @@
       <form  name="add-card" action="#" class="popup__form">
         <h3 class="popup__heading">Новое место</h3>
         <fieldset class="popup__form-container">
-          <input name="place" type="text" class="popup__input popup__input_type_place" placeholder="Название">          
-          <input name="url" type="text" class="popup__input popup__input_type_url" placeholder="Ссылка на картинку">          
+          <input name="place" type="text" required class="popup__input popup__input_type_place" placeholder="Название">          
+          <input name="url" type="url" required class="popup__input popup__input_type_url" placeholder="Ссылка на картинку">          
         </fieldset>
         <button type="submit" class="popup__btn-submit">Создать</button>
       </form>      
@@ -74,14 +74,14 @@
   </div>
 
   <template class="template-element">
-    <article class="element">
+    <li class="element">
       <button type="button" class="element__btn-remove" aria-label="Удалить"></button>
       <img class="element__image" src="#" alt="Изображение места">     
       <div class="element__info">
         <h2 class="element__title"></h2>
         <button type="button" class="element__btn-like" aria-label="Лайк"></button>
       </div>                     
-    </article>
+    </li>
   </template>
 
   <script src="scripts/index.js"></script>
