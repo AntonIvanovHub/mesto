@@ -61,10 +61,21 @@ const cardTemlate = document.querySelector('.template-element').content.querySel
 const elements = document.querySelector('.elements__list');
 
 // Функции
+// Закрытие и открытие модалки
 
 function togglePopup(popup) {        
-    popup.classList.toggle('popup_opened');     
+    popup.classList.toggle('popup_opened');
+    document.addEventListener('keydown', closePopupEscape);     
 }
+// Закрытие по клавише Esc
+function closePopupEscape(evt) {
+    if (evt.key === 'Escape') {
+        editProfilePopup.classList.remove('popup_opened');
+        addCardPopup.classList.remove('popup_opened');
+        imagePopup.classList.remove('popup_opened');
+    }  
+    document.removeEventListener('keydown', closePopupEscape);
+  }
 
 // Заполняем формы
 function formSubmitHandler (evt) {
@@ -126,18 +137,26 @@ profileEditButton.addEventListener('click', () => {
     }//Проверку добавил в обработчик клика редактирования профиля
     togglePopup(editProfilePopup)
 });
-closeProfileEditButton.addEventListener('click',  () => {
-    togglePopup(editProfilePopup)
-});
+
+editProfilePopup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__btn-close')) { 
+        togglePopup(editProfilePopup)}
+    });// Закрытие модалки по оверлей или крестику
+
 cardAddButton.addEventListener('click', () => {
     togglePopup(addCardPopup)
 });
-closeCardAddButton.addEventListener('click',  () => {
-    togglePopup(addCardPopup)
-});
-closeImagePopupButton.addEventListener('click',  () => {
-    togglePopup(imagePopup)
-});
+
+addCardPopup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__btn-close')) { 
+        togglePopup(addCardPopup)}
+    });// Закрытие модалки по оверлей или крестику
+
+imagePopup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__btn-close')) { 
+        togglePopup(imagePopup)}
+    });// Закрытие модалки по оверлей или крестику
+
 editForm.addEventListener('submit', formSubmitHandler);
 addCardForm.addEventListener('submit', addCardSubmitHandler);
 

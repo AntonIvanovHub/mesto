@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--единственная ошибка(404) в консоле которую я вижу, появляется при первой загрузке с GitHubPages, но после обновления страницы исчезает и больше не появляется. Почему это происходит я не могу понять. Больше ошибок нет. Или я не внимательно смотрю?-->
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -38,11 +38,13 @@
   <div class="popup popup_type_edit-profile">
     <section class="popup__container">
       <button type="button" class="popup__btn-close" aria-label="Закрыть"></button>
-      <form  name="edit-profile" action="#" class="popup__form">
+      <form  name="edit-profile" action="#" novalidate class="popup__form">
         <h3 class="popup__heading">Редактировать профиль</h3>
         <fieldset class="popup__form-container">
-          <input name="name" type="text" required class="popup__input popup__input_type_name" placeholder="Имя">          
-          <input name="occupation" type="text" class="popup__input popup__input_type_occupation" placeholder="О себе">          
+          <input id="name-input" name="name" type="text" minlength="2" maxlength="40" value="Антон Иванов" required class="popup__input popup__input_type_name" placeholder="Имя">
+          <span id="name-input-error" class="popup__input-error"></span>          
+          <input id="occupation-input" name="occupation" minlength="2" maxlength="200" type="text" value="Веб разработчик" required class="popup__input popup__input_type_occupation" placeholder="О себе">
+          <span id="occupation-input-error" class="popup__input-error"></span>
         </fieldset>
         <button type="submit" class="popup__btn-submit">Сохранить</button>
       </form>      
@@ -52,11 +54,13 @@
   <div class="popup popup_type_add-card">
     <section class="popup__container">
       <button type="button" class="popup__btn-close" aria-label="Закрыть"></button>
-      <form  name="add-card" action="#" class="popup__form">
+      <form  name="add-card" action="#"  novalidate class="popup__form">
         <h3 class="popup__heading">Новое место</h3>
         <fieldset class="popup__form-container">
-          <input name="place" type="text" required class="popup__input popup__input_type_place" placeholder="Название">          
-          <input name="url" type="url" required class="popup__input popup__input_type_url" placeholder="Ссылка на картинку">          
+          <input id="place-input" name="place" type="text" minlength="1" maxlength="30" required class="popup__input popup__input_type_place" placeholder="Название">          
+          <span id="place-input-error" class="popup__input-error"></span>
+          <input id="url-input" name="url" type="url" required class="popup__input popup__input_type_url" placeholder="Ссылка на картинку">
+          <span id="url-input-error" class="popup__input-error"></span>          
         </fieldset>
         <button type="submit" class="popup__btn-submit">Создать</button>
       </form>      
@@ -84,6 +88,8 @@
     </li>
   </template>
 
+  <script src="scripts/validate.js"></script>
   <script src="scripts/index.js"></script>
+  
 </body>
 </html>
